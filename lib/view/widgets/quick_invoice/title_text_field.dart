@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_dashboard/utils/app_styles.dart';
+import 'package:responsive_dashboard/view/widgets/quick_invoice/custom_field.dart';
 
 class TitleTextField extends StatelessWidget {
   const TitleTextField({
@@ -20,28 +21,7 @@ class TitleTextField extends StatelessWidget {
           style: AppStyles.styleMedium16,
         ),
         const SizedBox(height: 12),
-        TextField(
-          decoration: InputDecoration(
-            hintText: hint,
-            hintStyle: AppStyles.styleRegular16.copyWith(
-              color: const Color(0xFFAAAAAA),
-            ),
-            fillColor: const Color(0xFFFAFAFA),
-            filled: true,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide.none,
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide.none,
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide.none,
-            ),
-          ),
-        ),
+        CustomTextField(hint: hint),
       ],
     );
   }
