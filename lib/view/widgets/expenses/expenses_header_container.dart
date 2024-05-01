@@ -57,24 +57,25 @@ class ExpensesHeaderContainer extends StatelessWidget {
           Text(
             expenses.accountType,
             style: isActive
-                ? AppStyles.styleMedium16.copyWith(color: Colors.white)
-                : AppStyles.styleMedium16,
+                ? AppStyles.styleMedium16(context).copyWith(color: Colors.white)
+                : AppStyles.styleMedium16(context),
           ),
           const SizedBox(height: 8),
           Text(
             expenses.date ?? 'April 2022',
             style: isActive
-                ? AppStyles.styleRegular14.copyWith(
+                ? AppStyles.styleRegular14(context).copyWith(
                     color: const Color(0xFFFAFAFA),
                   )
-                : AppStyles.styleRegular14,
+                : AppStyles.styleRegular14(context),
           ),
           const SizedBox(height: 16),
           Text(
             '\$${expenses.moneyAmount}',
             style: isActive
-                ? AppStyles.styleSemiBold24.copyWith(color: Colors.white)
-                : AppStyles.styleSemiBold24,
+                ? AppStyles.styleSemiBold24(context)
+                    .copyWith(color: Colors.white)
+                : AppStyles.styleSemiBold24(context),
           ),
         ],
       ),
