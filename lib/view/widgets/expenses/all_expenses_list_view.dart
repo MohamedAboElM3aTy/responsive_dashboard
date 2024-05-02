@@ -31,25 +31,37 @@ class _AllExpensesListViewState extends State<AllExpensesListView> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: expensesList.asMap().entries.map(
-        (item) {
-          final itemIndex = item.key;
-          return Expanded(
-            child: InkWell(
-              onTap: () => setState(() => selectedIndex = itemIndex),
-              child: Padding(
-                padding: (itemIndex == 1)
-                    ? const EdgeInsets.symmetric(horizontal: 12.0)
-                    : EdgeInsets.zero,
-                child: ExpensesHeaderContainer(
-                  isActive: selectedIndex == itemIndex,
-                  expenses: item.value,
-                ),
-              ),
+      children: [
+        Expanded(
+          child: InkWell(
+            onTap: () => setState(() => selectedIndex = 0),
+            child: ExpensesHeaderContainer(
+              isActive: selectedIndex == 0,
+              expenses: expensesList[0],
             ),
-          );
-        },
-      ).toList(),
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: InkWell(
+            onTap: () => setState(() => selectedIndex = 1),
+            child: ExpensesHeaderContainer(
+              isActive: selectedIndex == 1,
+              expenses: expensesList[1],
+            ),
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: InkWell(
+            onTap: () => setState(() => selectedIndex = 2),
+            child: ExpensesHeaderContainer(
+              isActive: selectedIndex == 2,
+              expenses: expensesList[2],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

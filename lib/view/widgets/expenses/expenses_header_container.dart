@@ -33,19 +33,27 @@ class ExpensesHeaderContainer extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                width: 60,
-                height: 60,
-                padding: const EdgeInsets.all(14),
-                decoration: ShapeDecoration(
-                  color: isActive ? Colors.white12 : const Color(0xFFFAFAFA),
-                  shape: const OvalBorder(),
-                ),
-                child: SvgPicture.asset(
-                  expenses.imageName,
-                  colorFilter: ColorFilter.mode(
-                    isActive ? Colors.white : const Color(0xFF4EB7F2),
-                    BlendMode.srcIn,
+              Flexible(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 60),
+                  child: AspectRatio(
+                    aspectRatio: 1,
+                    child: Container(
+                      decoration: ShapeDecoration(
+                        color:
+                            isActive ? Colors.white12 : const Color(0xFFFAFAFA),
+                        shape: const OvalBorder(),
+                      ),
+                      child: Center(
+                        child: SvgPicture.asset(
+                          expenses.imageName,
+                          colorFilter: ColorFilter.mode(
+                            isActive ? Colors.white : const Color(0xFF4EB7F2),
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -54,28 +62,38 @@ class ExpensesHeaderContainer extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 34),
-          Text(
-            expenses.accountType,
-            style: isActive
-                ? AppStyles.styleMedium16(context).copyWith(color: Colors.white)
-                : AppStyles.styleMedium16(context),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              expenses.accountType,
+              style: isActive
+                  ? AppStyles.styleMedium16(context)
+                      .copyWith(color: Colors.white)
+                  : AppStyles.styleMedium16(context),
+            ),
           ),
           const SizedBox(height: 8),
-          Text(
-            expenses.date ?? 'April 2022',
-            style: isActive
-                ? AppStyles.styleRegular14(context).copyWith(
-                    color: const Color(0xFFFAFAFA),
-                  )
-                : AppStyles.styleRegular14(context),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              expenses.date ?? 'April 2022',
+              style: isActive
+                  ? AppStyles.styleRegular14(context).copyWith(
+                      color: const Color(0xFFFAFAFA),
+                    )
+                  : AppStyles.styleRegular14(context),
+            ),
           ),
           const SizedBox(height: 16),
-          Text(
-            '\$${expenses.moneyAmount}',
-            style: isActive
-                ? AppStyles.styleSemiBold24(context)
-                    .copyWith(color: Colors.white)
-                : AppStyles.styleSemiBold24(context),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              '\$${expenses.moneyAmount}',
+              style: isActive
+                  ? AppStyles.styleSemiBold24(context)
+                      .copyWith(color: Colors.white)
+                  : AppStyles.styleSemiBold24(context),
+            ),
           ),
         ],
       ),
