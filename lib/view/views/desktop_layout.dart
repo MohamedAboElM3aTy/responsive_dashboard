@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_dashboard/view/widgets/quick_invoice/all_expenses_and_quick_invoices_section.dart';
 import 'package:responsive_dashboard/view/widgets/drawer/custom_drawer.dart';
 import 'package:responsive_dashboard/view/widgets/income_section.dart/income_section.dart';
-import 'package:responsive_dashboard/view/widgets/my_card_and_transaction_history.dart';
+import 'package:responsive_dashboard/view/widgets/transaction_history/my_card_and_transaction_history.dart';
 
 class DesktopLayout extends StatelessWidget {
   const DesktopLayout({super.key});
